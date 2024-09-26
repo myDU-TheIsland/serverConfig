@@ -3212,7 +3212,7 @@ in:
 - quantumalignmentunit_3: 1
 - antimattercore_3: 1
 out:
-- WarpCellStandard: 1
+- WarpCellStandard: 2
 industries:
 - IndustryGlass2
 - IndustryGlass3
@@ -31831,7 +31831,7 @@ in:
 - OxygenPure: 30
 - HydrogenPure: 30
 out:
-- Kergon1: 100
+- Kergon1: 200
 industries:
 - IndustryChemical4
 - IndustryChemical
@@ -31847,7 +31847,7 @@ in:
 - OxygenPure: 25
 - HydrogenPure: 35
 out:
-- Kergon2: 100
+- Kergon2: 200
 industries:
 - IndustryChemical
 - IndustryChemical4
@@ -31866,7 +31866,7 @@ in:
 - OxygenPure: 45
 - HydrogenPure: 45
 out:
-- Kergon5: 100
+- Kergon5: 200
 industries:
 - IndustryChemical3
 - IndustryChemical
@@ -31882,7 +31882,7 @@ in:
 - OxygenPure: 35
 - HydrogenPure: 25
 out:
-- Kergon3: 100
+- Kergon3: 200
 industries:
 - IndustryChemical4
 - IndustryChemical
@@ -31898,7 +31898,7 @@ in:
 - OxygenPure: 30
 - HydrogenPure: 30
 out:
-- Kergon4: 100
+- Kergon4: 200
 industries:
 - IndustryChemical3
 - IndustryChemical

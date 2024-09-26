@@ -85,7 +85,7 @@ FeaturesList:
   luaRadarRestrictions: false
   luaScreenUnit: true
   dynamicWrecks: false
-  constructGarbageCollection: false
+  constructGarbageCollection: true
   miningUnitCalibration: true
   territoryUpkeep: false
   allowApheliaMissionInVR: false
@@ -163,18 +163,18 @@ Tool:
 ---
 AsteroidManagerConfig:
   parent: FeaturesConfig
-  planets: [1, 2, 3, 4, 6, 7, 8, 9]
+  planets: [1, 2, 3, 4, 6, 7, 8, 15]
   minStaticConstructDistance: 10000.0
-  minPlanetDistance: 4500000
+  minPlanetDistance: 200000
   maxPlanetDistance: 30000000
   minAsteroidDistance: 1000.0
-  lifetimeDays: 12
-  count: [250, 100, 50, 20, 10]
+  lifetimeDays: 2
+  count: [40, 20, 10, 10, 10]
   publishDelay: 7200
   notBefore: 1662195600
-  spawnBatchSize: 15
-  spawnBatchIntervalHours: 2
-  safezoneProbability: [1, 1, 1, .75, 0]
+  spawnBatchSize: 10
+  spawnBatchIntervalHours: 5
+  safezoneProbability: [1, 1, .05, .01, .001]
 ---
 AsteroidTrackerConfig:
   parent: FeaturesConfig
@@ -199,23 +199,23 @@ ConstructCompactionConfig:
   parent: FeaturesConfig
   autoCompactRadius: 0
   autoCompactionMinIdleTime: 10800
-  compactionMaxMass: 20000
+  compactionMaxMass: 80000
 ---
 ConstructGCConfig:
   parent: FeaturesConfig
-  apheliaTerritoryConstructAbandonDelayHours: 168
-  apheliaTerritoryAbandonedConstructDeleteDelayHours: 48
-  unsubscribedEntityConstructAbandonDelayHours: 2160
-  abandonedConstructDeleteDelayHours: 720
+  apheliaTerritoryConstructAbandonDelayHours: 2080
+  apheliaTerritoryAbandonedConstructDeleteDelayHours: 2080
+  unsubscribedEntityConstructAbandonDelayHours: 168
+  abandonedConstructDeleteDelayHours: 168
 ---
 ConstructSpeedConfig:
   parent: FeaturesConfig
-  heavyConstructMass: 3000000
-  maxHeavyLinearSpeedKmH: 60000
-  maxHeavyAngularSpeed: 0.1
+  heavyConstructMass: 30000000
+  maxHeavyLinearSpeedKmH: 30000
+  maxHeavyAngularSpeed: 0.25
   lightConstructMass: 10000
-  maxLightLinearSpeedKmH: 120000
-  maxLightAngularSpeed: 5
+  maxLightLinearSpeedKmH: 50000
+  maxLightAngularSpeed: 3
   convexity: 3.5
   convergenceDuration: 10
   useAtmoSpeedLimit: false
@@ -278,75 +278,22 @@ PVPConfig:
   baseShields: true
   baseShieldsAdjResistances: true
   stagingFakeWeaponshot: false
-  planetsAreSafeZones: false
-  planetSafeZoneFallbackRadius: 500000.0
+  planetsAreSafeZones: true
+  planetSafeZoneFallbackRadius: 600000.0
   planetSafeZoneFallbackMinSize: 10000.0
   safeZones:
   - centerX: 13771471
     centerY: 7435803
     centerZ: -128971
-    radius: 18000000
-  planetProperties:
-  - planetName: Madis
-    atmosphericRadius: 500000
-  - planetName: Madis Moon 1
-    atmosphericRadius: 500000
-  - planetName: Madis Moon 2
-    atmosphericRadius: 500000
-  - planetName: Madis Moon 3
-    atmosphericRadius: 500000
-  - planetName: Alioth
-    atmosphericRadius: 500000
-  - planetName: Alioth Moon 1
-    atmosphericRadius: 500000
-  - planetName: Alioth Moon 4
-    atmosphericRadius: 500000
-  - planetName: Sanctuary
-    atmosphericRadius: 500000
-  - planetName: Thades
-    atmosphericRadius: 500000
-  - planetName: Thades Moon 1
-    atmosphericRadius: 500000
-  - planetName: Thades Moon 2
-    atmosphericRadius: 500000
-  - planetName: Talemai
-    atmosphericRadius: 500000
-  - planetName: Talemai Moon 1
-    atmosphericRadius: 500000
-  - planetName: Talemai Moon 2
-    atmosphericRadius: 500000
-  - planetName: Talemai Moon 3
-    atmosphericRadius: 500000
-  - planetName: Feli
-    atmosphericRadius: 500000
-  - planetName: Feli Moon 1
-    atmosphericRadius: 500000
-  - planetName: Sicari
-    atmosphericRadius: 500000
-  - planetName: Sinnen
-    atmosphericRadius: 500000
-  - planetName: Sinnen Moon 1
-    atmosphericRadius: 500000
-  - planetName: Teoma
-    atmosphericRadius: 500000
-  - planetName: Jago
-    atmosphericRadius: 500000
-  - planetName: Lacobus
-    atmosphericRadius: 500000
-  - planetName: Lacobus Moon 1
-    atmosphericRadius: 500000
-  - planetName: Lacobus Moon 2
-    atmosphericRadius: 500000
-  - planetName: Lacobus Moon 3
-    atmosphericRadius: 500000
-  - planetName: Symeon
-    atmosphericRadius: 500000
-  - planetName: Ion
-    atmosphericRadius: 0
-  - planetName: Ion Moon 1
-    atmosphericRadius: 0
-  - planetName: Ion Moon 2
-    atmosphericRadius: 0
+    radius: 3000000
+  - centerX: -262152
+    centerY: -262152
+    centerZ: -388447
+    radius: 3500000
+  - centerX: 100013771471
+    centerY: 7435803
+    centerZ: -128971
+    radius: 200000
 ---
 ReconnectionRewardConfig:
   parent: FeaturesConfig
@@ -17785,8 +17732,8 @@ FlatteningTool:
   tooltip: Flatten Voxel surfaces
   collectTime: 1
   cylinderHeight: 25
-  cylinderScaleRange: 2
-  range: 100
+  cylinderScaleRange: 5
+  range: 200
 ---
 HarvestTool:
   parent: ExploreTool
@@ -26174,7 +26121,7 @@ Nitron:
   displayName: Nitron Fuel
   newPlayerDefaultQty: 300
   parent: AtmoFuel
-  unitMass: 4
+  unitMass: 2
   unitVolume: 1
   level: 1
   price: 30
@@ -29295,6 +29242,32 @@ BaseShieldGenerator:
     kinetic: 0.1
     electromagnetic: 0.1
 ---
+BaseShieldGenerator9:
+  parent: BaseShieldGeneratorUnit
+  displayName: Market Shield Generator
+  description: Market Shield Generator. Go Away!
+  scale: xl
+  level: 4
+  visibilityLOD: 4
+  unitMass: 138000
+  unitVolume: 22700
+  hitpoints: 47250
+  isUseable: true
+  shieldMaxHp: 5000000000000
+  adjResistancePoolSize: 0.8
+  adjResistanceCooldown: 900
+  maxCountPerConstruct: 1
+  baseShieldResistances:
+    antimatter: 0.95
+    thermic: 0.95
+    kinetic: 0.95
+    electromagnetic: 0.95
+  resistances:
+    antimatter: 0.95
+    thermic: 0.95
+    kinetic: 0.95
+    electromagnetic: 0.95
+---
 RadarPvPAtmospheric:
   parent: RadarPVPUnit
   displayName: Atmospheric Radar
@@ -29784,7 +29757,7 @@ ElevatorXSmall:
   unitVolume: 57.56
   level: 2
   price: 76.81
-  max_range: 64.0
+  max_range: 256
   hitpoints: 51
 ---
 FireworksLauncher:
@@ -30882,7 +30855,7 @@ WarpBeaconUnit:
     thermic: 0.5
     kinetic: 0.5
     electromagnetic: 0.5
-  setupTimer: 86400
+  setupTimer: 60
 ---
 WarpDriveUnit:
   parent: HighTechTransportation
@@ -37051,7 +37024,7 @@ ThoramineOre:
   unitVolume: 1
   unitMass: 21.3
   level: 5
-  hidden: true
+  hidden: false
 ---
 TitaniumOre:
   parent: Ore5
@@ -39861,6 +39834,7 @@ ShieldGeneratorSmallVenter9:
   parent: ShieldGeneratorSmallGroup
   displayName: Admin Shield Generator
   subdescription: The active shield generator variant boasts a reduced venting cooldown and stronger venting regeneration at the cost of adjustable resistances and resistance adjusting cooldown.
+  assetAlias: ShieldGeneratorExtraSmall
   level: 9
   unitMass: 5000
   unitVolume: 950
@@ -39872,10 +39846,10 @@ ShieldGeneratorSmallVenter9:
   ventingMaxRegen: 0.385
   shieldMaxHp: 1750000000000
   shieldResistances:
-    antimatter: 1
-    thermic: 1
-    kinetic: 1
-    electromagnetic: 1
+    antimatter: .5
+    thermic: .5
+    kinetic: .5
+    electromagnetic: .5
 ---
 GunLarge:
   parent: GunUnit
@@ -43521,6 +43495,21 @@ AntiGravityPulsor:
   level: 3
   scale: m
   hitpoints: 1872
+---
+TranswarpBeacon:
+  parent: WarpBeaconUnit
+  assetAlias: WarpBeacon
+  cruiseSpeedKmH: 252000000
+  warpCellRate: 0.0000025
+  maxWarpDistance: 100000000000
+  setupTimer: 10
+  displayName: "Transwarp beacon"
+  unitMass: 148943
+  unitVolume: 25360
+  level: 5
+  scale: xl
+  price: 23290.43
+  hitpoints: 43117
 ---
 WarpBeacon:
   parent: WarpBeaconUnit
@@ -50554,6 +50543,7 @@ ContainerSmallOptimised9000:
   maxVolume: 2856000000000000
   unitMass: 93.84
   massFactor: 1
+  assetAlias: ContainerSmall
 ---
 ContainerXL:
   displayName: Basic Container
